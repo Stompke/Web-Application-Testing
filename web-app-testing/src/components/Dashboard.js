@@ -1,9 +1,11 @@
 import React from 'react';
+import ButtonContainer from './ButtonContainer';
 
-const Dashboard = () => {
+
+const Dashboard = props => {
 
     return (
-        <h1>Dashboard</h1>
+        <ButtonContainer count={props.count} swing={props.swing}/>
     )
 }
 export default Dashboard;

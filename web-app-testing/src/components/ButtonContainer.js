@@ -2,23 +2,32 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+let strike = 'strike';
 
-const ButtonContainer = () => {
+const ButtonContainer = props => {
+
+
+    const onClickHandler = e => {
+        props.swing(e.target.value)
+        console.log(e.target.value)
+    }
+
+
 
     return (
         <div>
-            <Button  variant="contained" color="primary">
+            <button value='strike' onClick={onClickHandler} variant="contained" color="primary">
             Strike
-            </Button>
-            <Button variant="contained" color="primary">
+            </button>
+            <button value='ball' onClick={onClickHandler} variant="contained" color="primary">
             Ball 
-            </Button>
-            <Button variant="contained" color="primary">
+            </button>
+            <button value='foul' onClick={onClickHandler}  variant="contained" color="primary">
             Foul
-            </Button>
-            <Button variant="contained" color="primary">
+            </button>
+            <button  value='hit' onClick={onClickHandler}  variant="contained" color="primary">
             Hit
-            </Button>
+            </button>
         </div>
     )
 }
