@@ -1,20 +1,4 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import Display from './components/Display';
-import Dashboard from './components/Dashboard';
-
-
-function App() {
-
-  const [count, setCount] = useState({
-    strike: 0,
-    ball: 0
-  })
-
-
-   const swing = (typeOfHit) => {
+export const swing = (typeOfHit) => {
     if(typeOfHit === 'strike') {
       if (count.strike === 2) {
         setCount({
@@ -24,7 +8,7 @@ function App() {
       } else {
         setCount({
           ...count,
-          [typeOfHit]: count.strike + 1
+          strike: count.strike + 1
         })
       }
 
@@ -37,7 +21,7 @@ function App() {
       } else {
         setCount({
           ...count,
-          [typeOfHit]: count.ball + 1
+          ball: count.ball + 1
         })
       }
     } else if(typeOfHit === 'hit') {
@@ -56,21 +40,3 @@ function App() {
       }
     }
   }
-
-
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-
-        <Display  count={count} />
-        <Dashboard swing={swing} />
-        
-        
-      </header>
-    </div>
-  );
-}
-
-export default App;
