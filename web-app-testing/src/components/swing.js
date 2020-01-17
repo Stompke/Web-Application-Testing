@@ -1,4 +1,20 @@
 export const swing = (typeOfHit) => {
+
+  return 2 + typeOfHit;
+
+  }
+
+export const typeSwing = (typeOfHit) =>  {
+
+    let count = {
+      strike: 0,
+      ball: 0
+    }
+
+    const setCount = (numbers) => {
+      count = {...numbers};
+    }
+
     if(typeOfHit === 'strike') {
       if (count.strike === 2) {
         setCount({
@@ -8,10 +24,10 @@ export const swing = (typeOfHit) => {
       } else {
         setCount({
           ...count,
-          strike: count.strike + 1
+          [typeOfHit]: count.strike + 1
         })
       }
-
+  
     } else if(typeOfHit === 'ball') {
       if(count.ball === 3) {
         setCount({
@@ -21,7 +37,7 @@ export const swing = (typeOfHit) => {
       } else {
         setCount({
           ...count,
-          ball: count.ball + 1
+          [typeOfHit]: count.ball + 1
         })
       }
     } else if(typeOfHit === 'hit') {
@@ -39,4 +55,8 @@ export const swing = (typeOfHit) => {
         })
       }
     }
+
+
+      return count;
   }
+  
